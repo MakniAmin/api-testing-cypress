@@ -1,3 +1,6 @@
+![Cypress Tests](https://github.com/MakniAmin/api-testing-cypress/actions/workflows/cypress.yml/badge.svg)
+
+
 # API Testing Portfolio — Cypress
 
 Automated API test suite for [reqres.in](https://reqres.in), a public REST API, built with Cypress.
