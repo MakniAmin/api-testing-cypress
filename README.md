@@ -31,7 +31,12 @@ npx cypress run    # headless
   error responses instead of letting Cypress auto-fail.
 - Structure separates `users` and `auth` domains for readability as the suite grows.
 
-## Coverage gaps / next steps
-- Add schema validation (e.g. with `cypress-json-schema` or ajv)
-- Add response time assertions
-- Parameterize tests to run against multiple environments
+## What this covers
+- Full CRUD test coverage (GET, POST, PUT, PATCH, DELETE)
+- Positive and negative test cases (404, missing fields, invalid data)
+- JSON schema validation (ajv) to enforce API response contracts
+- Chained requests simulating a real user lifecycle
+- Authentication flow testing (valid/invalid login)
+- Custom Cypress commands for reusable API calls
+- Fixture-based test data
+- CI pipeline via GitHub Actions

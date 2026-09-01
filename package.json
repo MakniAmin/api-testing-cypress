@@ -10,6 +10,7 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "ajv": "^8.20.0",
     "cypress": "^15.21.1"
   }
 }

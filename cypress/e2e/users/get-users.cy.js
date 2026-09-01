@@ -1,18 +1,19 @@
 describe("GET /users", () => {
-  it("returns a paginated list of users", () => {
-    cy.request("GET", "/users?page=2").then((response) => {
-      expect(response.status).to.eq(200);
-      expect(response.body).to.have.property("data");
-      expect(response.body.data).to.be.an("array");
-      expect(response.body.page).to.eq(2);
+  it("returns a paginated list of users matching schema", () => {
+    cy.fixture("schemas/userListSchema").then((schema) => {
+      cy.request("GET", "/users?page=2").then((response) => {
+        expect(response.status).to.eq(200);
+        cy.validateSchema(response.body, schema);
+      });
     });
   });
 
-  it("returns a single user by valid ID", () => {
-    cy.request("GET", "/users/2").then((response) => {
-      expect(response.status).to.eq(200);
-      expect(response.body.data).to.have.property("email");
-      expect(response.body.data.id).to.eq(2);
+  it("returns a single user matching schema", () => {
+    cy.fixture("schemas/userSchema").then((schema) => {
+      cy.request("GET", "/users/2").then((response) => {
+        expect(response.status).to.eq(200);
+        cy.validateSchema(response.body, schema);
+      });
     });
   });
 
